@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Shorter</title>
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script>
+        function shortUrl() {
+            var longUrl = $('#shortenerInputText').val();
+            $.post('/Home/ShortUrl', { Url: longUrl }, function (data) {
+                $('#result').html("http://localhost:7461/" + data);
+                //$('#shortID').show();
+            });
+        }
+    </script>
+
+</head>
+<body>
+    <div class="IXTYPID-r-e IXTYPID-i-c">
+        <div class="IXTYPID-t-a IXTYPID-a-a" aria-hidden="true" style="display: none;"><div class="IXTYPID-c-g"></div></div> <div class="IXTYPID-r-d" id="shortener"> <div class="IXTYPID-r-f"><img src="~/Image/me.png" width="34" height="39" /></div> <div class="IXTYPID-r-c" id="internal_message"></div> <div><b>Kısaltmak istenen Url'i buraya kopyalayınız:</b></div> <div class="IXTYPID-r-a" id="shortener_container"> <input class="IXTYPID-x-a IXTYPID-b-a IXTYPID-d-b IXTYPID-r-b" type="text" id="shortenerInputText" tabindex="1"> <div class="IXTYPID-d-a IXTYPID-w-a IXTYPID-b-a IXTYPID-r-g" tabindex="1" id="shortenerSubmitButton" aria-labelledby="gwt-uid-11" role="button"><span class="IXTYPID-b-a IXTYPID-w-f"></span> <span class="IXTYPID-b-a IXTYPID-w-h" onclick="shortUrl()">URL Kısalt</span></div> <div class="IXTYPID-v-a g-recaptcha" data-sitekey="6LchOvkSAAAAABtPQPc0LH1A6rqU5WR9CXFssNJV"><div><div style="width: 304px; height: 78px;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="" tabindex="0" vspace="0" width="304" title="recaptcha widget'ı" role="presentation" height="78" id="I0_1438082275995" name="I0_1438082275995" src="https://www.google.com/recaptcha/api2/anchor?k=6LchOvkSAAAAABtPQPc0LH1A6rqU5WR9CXFssNJV&amp;co=aHR0cHM6Ly9nb28uZ2w.&amp;hl=tr&amp;v=r20150722114659&amp;size=normal&amp;usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en.jqFfHqiz5j8.O%2Fm%3D__features__%2Fam%3DQQ%2Frt%3Dj%2Fd%3D1%2Ft%3Dzcms%2Frs%3DAGLTcCP7hMFJ5KmE915Yi8mDQmZIen1WYg#id=I0_1438082275995&amp;parent=https%3A%2F%2Fgoo.gl&amp;pfname=&amp;rpctoken=60400975"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div></div></div> <div>Tüm url kısaltmaları borakasmer.com'dan erişilebilir..</div> </div>
+        <h2><b><span id="result" style="color:crimson;padding-left: 0.7cm"></span></b></h2>
+        <a class="btn btn-primary float-right margin-r4" onclick="shortUrl()" role="button">Add Session</a>
+    </div>
+</body>
